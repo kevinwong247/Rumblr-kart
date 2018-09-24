@@ -1,0 +1,41 @@
+#flash-delete {
+  background-color: red;
+  color: black;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 15px;
+}
+
+#flash-usernameexist {
+    background-color: red;
+    color: white;
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 15px;
+  }
+#diaplayline{
+  display:inline-block;
+}
+
+.diaplay{
+  display:inline-block;
+}
+.cardcenter {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+#postimage {
+  background-image: url("https://www.technobuffalo.com/wp-content/uploads/2017/01/Mario-Kart-8-Deluxe-23.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;        
+}
+.stillimage {
+  background-image: url("https://static.tvtropes.org/pmwiki/pub/images/mk_double_dash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; 
+}

@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <h1 class="display-4">Hello, <%=current_user.username%></h1>
+  <p class="lead">This is a bloging website for people who like Mario Kart .</p>
+  <hr class="my-4">
+  <div class="row">
+    <div class="col-sm">
+        <img src="https://orig00.deviantart.net/1678/f/2018/081/2/e/mario_kart_by_smlsmg4nascar2015-dc6o1hq.jpg">
+    </div>
+    <div class="col-sm">
+
+    <div class="card" style="width: 18rem;">
+    <div class="card-header">
+        <h5><strong>User Profile<strong></h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Username:</strong> <%= current_user.username %> </li>
+        <li class="list-group-item"><strong>Password:</strong> <%= current_user.password %></li>
+        <li class="list-group-item"><strong>Email:</strong> <%= current_user.email %></li>
+         <li class="list-group-item"><strong>Birthday:</strong> <%= current_user.birthday %> </li>
+  </ul>
+</div>
+
+        
+    </div>
+  </div>
+</div>
+
+
+
+

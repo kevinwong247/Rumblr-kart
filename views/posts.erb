@@ -1,0 +1,37 @@
+
+<div id="postimage" class="container">
+  <div class="row">
+    <div class="col-sm">
+    
+      
+    </div>
+    <div class="col-sm">
+      <h1> Post </h1>
+      <% posts.each do |post| %>
+          <%somestring = post.id%>
+          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header"><%= post.title %></div>
+          <div class="card-body">
+            <h5 class="card-text"><%= post.content %>.</h5>
+            <p class="card-title">Username: <%= post.user.username %></p>
+          </div>
+           <br>
+          </div>
+      <% end %>
+      </div>
+    <div class="col-sm">
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

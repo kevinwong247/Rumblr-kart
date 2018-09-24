@@ -1,0 +1,16 @@
+You searched <%=query%>
+
+<%hashtags.each do |hashtag|%>
+    <%if query == hashtag.tag%>
+        <%apost = hashtag.post%>
+       <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header"><%= apost.title %></div>
+      <div class="card-body">
+    <h5 class="card-text"><%= apost.content %>.</h5>
+    <p class="card-title">Username: <%= apost.user.username %></p>
+    <%end%>
+<%end%>
+
+
+
+

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <img src="https://static.tvtropes.org/pmwiki/pub/images/mk_double_dash.jpg">
+    </div>
+    <div class="col-sm">
+      <h1>My Blog Posts</h1>
+      <img src="https://vignette.wikia.nocookie.net/mariokart/images/4/47/MK8_Bowser_Icon.png/revision/latest?cb=20151225141439">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Make a Post</button>
+      
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/myblog" action="/posts" method="post">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="recipient-name" name="title">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Post:</label>
+            <textarea class="form-control" id="message-text" name="content"></textarea>
+          </div>
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Hashtags:</label>
+            <input type="text" class="form-control" id="recipient-name" name="hashtags">
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value="Post">
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% blogposts.each do |blogpost| %>
+  <% if @thisuser.username == blogpost.user.username && @thisuser %>
+    <div class="card text-white bg-dark mb-3 cardcenter" style="max-width: 18rem;">
+      <div class="card-header"><%= blogpost.title %></div>
+      <div class="card-body">
+    <h5 class="card-text"><%= blogpost.content %>.</h5>
+    <p class="card-title">Username: <%= blogpost.user.username %></p>
+    <p class="card-header"><%=@hashstring%></p>
+  </div>
+  <%=@printhash%>
+  <a href= "/posts/<%= blogpost.id %>">Delete</a>
+</div>
+    
+  <% end %>
+<% end %>
+    </div>
+    <div class="col-sm">
+      <img src="https://static.tvtropes.org/pmwiki/pub/images/mk_double_dash.jpg">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
