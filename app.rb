@@ -86,7 +86,7 @@ get '/myblog' do
   @printhash = params[:hashtags]
   output = ''
   
-  output += erb :myblog, locals: { blogposts: Post.order(created_at: :desc).last(20) }
+  output += erb :myblog, locals: { blogposts: Post.order(created_at: :desc).first(20) }
   output
 end
 
@@ -112,7 +112,7 @@ end
 get '/posts' do 
   @thisuser = current_user
   output = ''
-  output += erb :posts, locals: { posts: Post.order(created_at: :desc).last(20) }
+  output += erb :posts, locals: { posts: Post.order(created_at: :desc).first(20) }
   output
 end
 
