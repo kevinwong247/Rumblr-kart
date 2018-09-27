@@ -39,6 +39,7 @@ post '/signup' do
 
     # logs user in
     session[:user_id] = user.id
+    @@login_users.push(user.id)
 
     # redirects to content page
     redirect '/'
