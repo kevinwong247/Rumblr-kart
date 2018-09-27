@@ -4,7 +4,7 @@ require 'sinatra/flash'
 
 set :sessions, true
 use Rack::MethodOverride
-
+@@login_users = []
 def current_user
   if session[:user_id]
     return User.find(session[:user_id])
@@ -17,7 +17,7 @@ end
 
 get '/' do
   if session[:user_id]
-    erb :user_profile, locals: { current_user: current_user }
+    erb :user_profile, locals: { current_user: current_user, allusers: User.all }
   else
     erb :index
   end
@@ -50,6 +50,7 @@ post '/login' do
 
   if user && user.password == params[:password]
     session[:user_id] = user.id
+    @@login_users.push(user.id)
     redirect '/myblog'
   else
     redirect '/'
@@ -90,8 +91,14 @@ post '/account' do
 end
 
 get '/logout' do
+  @@login_users.each do |user|
+    if session[:user_id] == user
+      @@login_users.delete(user)
+    end
+  end
   session[:user_id] = nil
     # flash[:deleteduser] = "Your account has been deleted"
+    
   redirect '/'
 end
 

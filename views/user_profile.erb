@@ -24,6 +24,25 @@
     </div>
   </div>
 </div>
+<span class="border border-primary">
+<strong>Active Users:</strong> <br>
+</span>
+    <%i=0%>
+    <%allusers.each do |user|%>
+        <%while @@login_users[i] == user.id && i < @@login_users.length%>
+            <%=user.username%><br>
+            <%i+=1%>
+        <%end%>
+    <%end%>
+
+<span class="border border-primary">
+<strong>Other Users:</strong> <br>
+</span>
+
+    <%allusers.each do |user|%>
+        <%=user.username%><br>
+    <%end%>
+
 
 
 
