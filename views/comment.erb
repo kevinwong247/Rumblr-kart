@@ -1,0 +1,40 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      
+    </div>
+    <div class="col-sm">
+       <div class="card text-white bg-dark mb-3 cardcenter" style="max-width: 18rem;">
+      <div class="card-header"><%= postforc.title %></div>
+      <div class="card-body">
+    <h5 class="card-text"><%= postforc.content %>.</h5>
+    <p class="card-title">Username: <%= postforc.user.username %></p>
+  </div>
+</div>
+    </div>
+    <div class="col-sm">
+      
+    </div>
+  </div>
+</div>
+
+
+<%commentsforc=postforc.comments%>
+
+  <% commentsforc.each do |acomment|%>
+    <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Username:<%=acomment.user.username%></h4>
+  <p> <%=acomment.commentary%><br></p>
+  <hr>
+</div>
+</div>
+<%end%>
+
+
+
+<form action="/comment/:id" method="post">
+  <textarea name="content" cols="60" rows="10"></textarea><br>
+  <input type="hidden" id="postId" name="postId" value="<%=postforc.id%>%">
+  <input type="submit" value="Comment">
+</form>

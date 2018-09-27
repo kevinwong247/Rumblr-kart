@@ -48,9 +48,7 @@
       <div class="card-body">
     <h5 class="card-text"><%= blogpost.content %>.</h5>
     <p class="card-title">Username: <%= blogpost.user.username %></p>
-    <p class="card-header"><%=@hashstring%></p>
   </div>
-  <%=@printhash%>
   <a href= "/posts/<%= blogpost.id %>">Delete</a>
 </div>
     

@@ -56,8 +56,22 @@ post '/login' do
   end
 end
 
-get '/posts/new' do
-  erb :new_posts
+get '/comment/:id' do
+  postforc=Post.find_by(id: params[:id])
+
+
+  erb :comment, locals: {postforc: postforc}
+end
+
+post '/comment/:id' do 
+  Comment.create(
+    commentary: params[:content],
+    post_id: params[:postId],
+    user_id: current_user.id
+    )
+    newpost = Post.find_by(id: params[:postId])
+    
+  redirect "/comment/#{params[:postId]}"
 end
 
 get '/content' do
@@ -92,9 +106,9 @@ end
 
 post '/myblog' do
   newpost = Post.create(
-        title: params[:title],
-        content: params[:content],
-        user_id: current_user.id
+    title: params[:title],
+    content: params[:content],
+    user_id: current_user.id
       )
   @hashstring = params[:hashtags]
   hashtag = params[:hashtags].tr("'","").split('#').join('').split(' ')
